@@ -22,8 +22,38 @@
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<?php endif; ?>
 	</header><!-- .entry-header -->
-	<?php } ?>
+    <?php }
+
+	if( have_rows('image_breakpoints') ): ?>
 	
+		<div id="vector-collage">
+			
+			<?php
+				while( have_rows('image_breakpoints') ): the_row(); 
+					
+					$small_image  = get_sub_field( "small_collage_image" );
+					$medium_image = get_sub_field( "medium_collage_image" );
+					$large_image  = get_sub_field( "large_collage_image" );
+
+					if( !empty( $small_image) ) : ?>
+						<img class="d-md-none" src="<?php echo esc_url($small_image['url']); ?>" alt="<?php echo esc_attr($small_image['alt']); ?>" />
+					<?php endif;					
+					if( !empty( $medium_image) ) : ?>
+						<img class="d-none d-md-block d-xl-none" src="<?php echo esc_url($medium_image['url']); ?>" alt="<?php echo esc_attr($medium_image['alt']); ?>" />
+					<?php endif;
+					if( !empty( $large_image) ) : ?>
+						<img class="d-none d-xl-block" src="<?php echo esc_url($large_image['url']); ?>" alt="<?php echo esc_attr($large_image['alt']); ?>" />
+					
+					<?php
+				endif; 
+			endwhile; ?>
+
+		</div>
+		
+	<?php
+	endif;
+	?>
+
 	<div class="entry-content">
 		<?php
 			the_content();
