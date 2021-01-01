@@ -40,9 +40,12 @@ html {
 .text-light, .text-light p, .text-light h1, .text-light .h1, .text-light h2, .text-light .h2, .text-light h3, .text-light .h3, .text-light h4, .text-light .h4, .text-light h5, .text-light .h5, .text-light h6, .text-light .h6 {
     color: #FFF !important;
 }
+.entry-title {
+    margin-top: 1rem;
+    border: none !important;
+}
 h1.entry-title {
     font-size: 2.5rem;
-    border: none;
 }
 /*--------------------------------------------------------------
 # Elements
@@ -117,7 +120,7 @@ header#masthead {
 # Content
 --------------------------------------------------------------*/
 #content.site-content {
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 /*--------------------------------------------------------------
 ## Posts and pages
