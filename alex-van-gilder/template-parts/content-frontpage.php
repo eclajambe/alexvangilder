@@ -13,19 +13,12 @@
 	
 	<?php
     $enable_vc = get_post_meta(get_the_ID(), '_wpb_vc_js_status', true);
-    if(!$enable_vc) {
-    ?>
-    <header class="entry-header">
-		<?php if( get_field('page_title_override') ): ?>
-			<h1 class="entry-title entry-title-acf"><?php the_field('page_title_override'); ?></h1> 
-		<?php else : ?>
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-    <?php }
+	if(!$enable_vc) {
+		get_template_part( 'template-parts/content-page-title', 'none' );
+	}
 
 	if( have_rows('image_breakpoints') ): ?>
-		<div id="vector-collage" class="container mt-3">
+		<div id="vector-collage" class="container mt-5">
 			<div class="row">
 				<div class="col-12">
 			

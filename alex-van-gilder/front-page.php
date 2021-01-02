@@ -41,9 +41,11 @@ get_header(); ?>
 		endif; ?>
 
 		<?php
+			$num_posts = get_field( 'number_teasers' );
 			/* Loop through Case Studies */			
 			$args = array(
-				'post_type' => 'case-study'
+				'post_type' => 'case-study',
+				'posts_per_page' => $num_posts
 			);
 
 			$post_query = new WP_Query($args);
@@ -58,18 +60,17 @@ get_header(); ?>
 							$post_query->the_post(); ?>
 
 								<div class="col-12 col-md-6">
+									<a href="<?php echo get_post_permalink(); ?>">
 									<?php 
 										if ( has_post_thumbnail() ) :
 											$featured_image = get_the_post_thumbnail(); ?>
-											<a href="<?php echo get_post_permalink(); ?>">
 												<?php echo $featured_image; ?>
-											</a>
 										<?php 
 										else :
 											// do nothing
-										endif; ?>	
-											
-										<h5 class="mt-3 mb-4"><?php the_title(); ?></h5>
+										endif; ?>			
+										<h4 class="mt-3 mb-4"><?php the_title(); ?></h4>
+									</a>
 								</div>
 
 							<?php

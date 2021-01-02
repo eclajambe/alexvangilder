@@ -1,7 +1,7 @@
 <?php
 /**
-* Template Name: Full Width
- */
+* Page Name: Jokes
+*/
 
 get_header(); ?>
 
