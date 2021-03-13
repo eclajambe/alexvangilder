@@ -1,12 +1,22 @@
 <?php 
 
 /**
+ * Dequeue legacy Bootstrap stylesheet
+*/
+function dequeue_my_css() {
+	wp_dequeue_style( 'wp-bootstrap-starter-bootstrap-css' );
+	wp_deregister_style( 'wp-bootstrap-starter-bootstrap-css' );
+}
+add_action('wp_enqueue_scripts','dequeue_my_css',100);
+
+/**
  * Enqueue child stylesheet
 */
-add_action( 'wp_enqueue_scripts', 'alex_van_gilder_enqueue_styles' );
-	function alex_van_gilder_enqueue_styles() {
-	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' ); 
+function alex_van_gilder_enqueue_styles() {
+	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+	wp_enqueue_style( 'bootstrap-5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css' );
 } 
+add_action( 'wp_enqueue_scripts', 'alex_van_gilder_enqueue_styles' );
 
 /**
  * Register our sidebars and widgetized areas

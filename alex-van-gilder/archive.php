@@ -28,7 +28,7 @@ get_header(); ?>
 			</header><!-- .page-header -->
 			
 			<div class="entry-content">
-				<div class="row">
+				<div class="row gx-5 gy-4">
 					<?php
 					/* Start the Loop */
 					while ( have_posts() ) : the_post();
