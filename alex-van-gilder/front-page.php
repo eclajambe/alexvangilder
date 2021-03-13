@@ -53,7 +53,7 @@ get_header(); ?>
 			if($post_query->have_posts() ) : ?>
 				
 				<div class="container">
-					<div class="row">
+					<div class="row gx-5 gy-4">
 
 						<?php
 						while($post_query->have_posts() ) :
