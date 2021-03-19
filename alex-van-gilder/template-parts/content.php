@@ -26,9 +26,11 @@
 		endif; ?>
 	</header><!-- .entry-header -->
 
-	<div class="post-thumbnail">
-		<?php the_post_thumbnail(); ?>
-	</div>	
+	<?php if( get_field('featured_image_display') !== 'hide' ) : ?>
+		<div class="post-thumbnail">
+			<?php the_post_thumbnail(); ?>
+		</div>	
+	<?php endif; ?>
 	
 	<div class="entry-content">
 		<?php
